@@ -87,17 +87,15 @@
             </div>
          </div>
       </header>
-
-      <div class="charts">
-            <div class="comboChartDiv">
-                <div id="combochart">
-                   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+      <div class="chart">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawVisualization);
 
       function drawVisualization() {
-
+        // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Average'],
           ['Week 1',  1650,      938,         1222,             998,           1450,      1251.6],
@@ -117,15 +115,17 @@
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
+        $(window).resize(function(){
+  drawVisualization();
+});
     </script>
-                </div>
-            </div>
 
-            <hr>
-
-            <div class="barChartDiv">
-                <div id="chart_div">
-                   <script type="text/javascript">
+    <body>
+       <div id="chart_div" style="width: 1300px; height: 900px; overflow: hidden; width: 80%; align-content: center;"></div>
+    </body>
+    </div>
+    <hr>
+    <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
@@ -155,10 +155,13 @@
       var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
       chart.draw(view, options);
   }
+    $(window).resize(function(){
+  drawChart();
+});
   </script>
-                </div>
-            </div>
-        </div>
+  <body>
+<div id="barchart_values" style="width: 1300px; height: 900px; overflow: hidden; width: 80%; align-content: center;"></div>
+</body>
 
       <!--  footer -->
       <footer id="contact">
