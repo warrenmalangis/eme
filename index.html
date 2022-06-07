@@ -116,12 +116,12 @@
         chart.draw(data, options);
       }
         $(window).resize(function(){
-  drawVisualization();
-});
+        drawVisualization();
+        });
     </script>
 
     <body>
-       <div id="chart_div" style="width: 1300px; height: 900px; overflow: hidden; width: 80%; align-content: center;"></div>
+       <div id="chart_div" style="width: 1300px; height: 900px; margin-left: 60px; overflow: hidden; width: 80%; align-content: center;"></div>
     </body>
     </div>
     <hr>
@@ -147,20 +147,19 @@
 
       var options = {
         title: "Monthly Sales Report",
-        width: 1300,
-        height: 900,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
       };
       var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
       chart.draw(view, options);
+
+        $(window).resize(function(){
+        drawChart();
+         });
   }
-    $(window).resize(function(){
-  drawChart();
-});
   </script>
   <body>
-<div id="barchart_values" style="width: 1300px; height: 900px; overflow: hidden; width: 80%; align-content: center;"></div>
+<div id="barchart_values" style="width: 1300px; height: 900px; margin-left: 60px; overflow: hidden; width: 80%; align-content: center;"></div>
 </body>
 
       <!--  footer -->
